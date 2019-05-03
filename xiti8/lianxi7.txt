@@ -1,0 +1,24 @@
+7¡¢
+https://www.nowcoder.com/pat/2/problem/252
+#include<iostream>
+using namespace std;
+int main()
+{
+	long long a[81], sum,f;
+	a[1] = 1, a[2] = 1;
+	int i, from, to;
+	for (i = 3; i <= 80; i++)
+    {
+		a[i] = a[i-1]+a[i-2];
+	}
+	while (scanf("%d%d", &from, &to)!=EOF)
+	{
+		sum = 0;
+		for (i = from; i <= to; i++)
+		{
+			sum = sum + a[i];
+		}
+		cout << sum << endl;
+	}
+	return 0;
+}

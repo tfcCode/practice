@@ -1,0 +1,57 @@
+https://www.nowcoder.com/pat/6/problem/4059
+#include<iostream>
+#include<string>
+using namespace std;
+int main()
+{
+	string s, a;
+	int i, j, m, n, sign = 0;
+	cin >> a >> s;
+	m = s.length();
+	n = a.length();
+	for (i = 0; i < n; i++)
+	{
+		if (a[i] == '+')
+		{
+			sign = 1;
+		}
+	}
+	for (i = 0; i < n; i++)
+	{
+		if (a[i] == '+')
+		{
+			continue;
+		}
+		for (j = 0; j < m; j++)
+		{
+			if (s[j] == '*')
+			{
+				continue;
+			}
+			if (a[i] == s[j])
+			{
+				s[j] = '*';
+				continue;
+			}
+			if (a[i] >= 'A'&&a[i] <= 'Z'&& s[j] - 32 == a[i])
+			{
+				s[j] = '*';
+				continue;
+			}
+			if (sign == 1 && s[j] >= 'A' && s[j] <= 'Z')
+			{
+				s[j] = '*';
+			}
+		}
+	}
+	for (i = 0; i < m; i++)
+	{
+		if (s[i] != '*')
+		{
+			cout << s[i];
+		}
+	}
+	cout << endl;
+	system("pause");
+	return 0;
+}

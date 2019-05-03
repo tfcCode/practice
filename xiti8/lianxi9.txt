@@ -1,0 +1,27 @@
+9
+https://www.nowcoder.com/pat/2/problem/253
+#include<iostream>
+using namespace std;
+int main()
+{
+	long long a[100001];
+	int i, m;
+	a[1] = 1, a[2] = 2;
+	for (i = 3; i <= 100000; i++)
+	{
+		a[i] = (a[i - 1] + a[i - 2]) % 1000000;
+	}
+	while (scanf("%d", &m) != EOF)
+	{
+		if (m > 24)
+		{
+			printf("%06lld\n", a[m]);  //后六位的第一位可能为0，也要输出
+		}
+		else
+		{
+			cout << a[m] << endl;
+		}
+	}
+	system("pause");
+	return 0;
+}

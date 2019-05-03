@@ -1,0 +1,23 @@
+6
+https://www.nowcoder.com/pat/2/problem/250
+#include<iostream>
+#include<stdio.h>
+using namespace std;
+int main()
+{
+	int  i;
+	while (~scanf("%d",&i))
+	{
+		
+        if (i % 8 == 2 || i % 8 == 6)
+		{
+			cout << "Yes" << endl;
+		}
+		else
+		{
+			cout << "No" << endl;
+		}
+	}
+	system("pause");
+	return 0;
+}
