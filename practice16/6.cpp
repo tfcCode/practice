@@ -1,11 +1,11 @@
-//https://www.nowcoder.com/practice/0337e32b1e5543a19fa380e36d9343d7?tpId=40&tqId=21361&tPage=2&rp=2&ru=/ta/kaoyan&qru=/ta/kaoyan/question-ranking
+//https://www.nowcoder.com/practice/103dd589fed14457a673c613d8de3841?tpId=40&tqId=21519&tPage=10&rp=10&ru=/ta/kaoyan&qru=/ta/kaoyan/question-ranking
 #include<iostream>
 #include<string>
 using namespace std;
 int main()
 {
 	string str;
-	int i, j, m, r, remain, sum, num[20000], x;
+	int i, j, m, r, num[10000], sum, x, remain;
 	while (cin >> str)
 	{
 		m = str.size();
@@ -17,15 +17,14 @@ int main()
 		x = 0;
 		for (i = 0; i < m;)
 		{
-			r = 0, remain = 0;
+			r = 0;
 			for (j = i; j < m; j++)
 			{
 				sum = r * 10 + pt[j];
 				r = sum % 2;
 				pt[j] = sum / 2;
-				remain = r;
-			};
-			num[x] = remain;
+			}
+			num[x] = r;
 			x++;
 			while (pt[i] == 0)
 			{
