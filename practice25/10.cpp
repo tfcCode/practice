@@ -1,9 +1,12 @@
-//https://www.nowcoder.com/practice/829ae8987a424bd6b9a95a240ebdb0e3?tpId=98&tqId=32882&tPage=3&rp=3&ru=/ta/2019test&qru=/ta/2019test/question-ranking
+
+
+//https://www.nowcoder.com/practice/d15363742fe94a0ea4030e5124713fac?tpId=98&tqId=32916&tPage=5&rp=5&ru=/ta/2019test&qru=/ta/2019test/question-ranking
 #include<iostream>
 #include<string>
 #include<vector>
 using namespace std;
-void add(string &num1, string &num2)
+
+string add(string &num1, string &num2)
 {
 	string temp;
 	int m, n, i, j, k;
@@ -54,14 +57,33 @@ void add(string &num1, string &num2)
 	}
 	delete[]pt1;
 	delete[]pt2;
-	cout << str << endl;
+	return str;
 }
+
 int main()
 {
-	string num1, num2;
-	while (cin >> num1 >> num2)
-	{
-		add(num1, num2);
+	string n, temp;
+	while (cin >> n) {
+		string sum = "2";
+		string f1 = "1", f2 = "1", f;
+		for (int i = 3;; i++) {
+			f = add(f1, f2);
+			f2 = f1, f1 = f;
+			temp = add(sum, f);
+			if (temp.size() > n.size() || temp.size() == n.size() && temp >= n) {
+				break;
+			}
+			sum = temp;
+		}
+		if (n == "1") {
+			cout << 0 << endl;
+		}
+		else if (n == "2") {
+			cout << 1 << endl;
+		}
+		else {
+			cout << sum << endl;
+		}
 	}
 	system("pause");
 	return 0;

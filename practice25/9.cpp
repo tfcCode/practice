@@ -1,9 +1,11 @@
-//https://www.nowcoder.com/practice/829ae8987a424bd6b9a95a240ebdb0e3?tpId=98&tqId=32882&tPage=3&rp=3&ru=/ta/2019test&qru=/ta/2019test/question-ranking
+
+//https://www.nowcoder.com/practice/b178fcef3ed4448c99d7c0297312212d?tpId=98&tqId=32905&tPage=5&rp=5&ru=/ta/2019test&qru=/ta/2019test/question-ranking
 #include<iostream>
-#include<string>
 #include<vector>
+#include<string>
 using namespace std;
-void add(string &num1, string &num2)
+
+string add(string &num1, string &num2)
 {
 	string temp;
 	int m, n, i, j, k;
@@ -54,14 +56,26 @@ void add(string &num1, string &num2)
 	}
 	delete[]pt1;
 	delete[]pt2;
-	cout << str << endl;
+	return str;
 }
+
 int main()
 {
-	string num1, num2;
-	while (cin >> num1 >> num2)
-	{
-		add(num1, num2);
+	int n;
+	while (cin >> n) {
+		string f1 = "1", f2 = "1", f;
+		for (int i = 2; i <= n; i++) {
+			f = add(f1, f2);
+			f2 = f1;
+			f1 = f;
+		}
+		if (n > 1) {
+			cout << f << endl;
+		}
+		else
+		{
+			cout << f1 << endl;
+		}
 	}
 	system("pause");
 	return 0;
