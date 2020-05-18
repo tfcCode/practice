@@ -2,6 +2,7 @@
 //https://www.nowcoder.com/practice/b43fb39898f448e39adbcffde5ff0dfc?tpId=90&tqId=30810&tPage=2&rp=2&ru=/ta/2018test&qru=/ta/2018test/question-ranking
 #include<iostream>
 #include<string>
+#include<algorithm>
 #include<vector>
 using namespace std;
 
@@ -23,14 +24,7 @@ int LCS_length(string& str1, string& str2)
 			}
 			else
 			{
-				if (lcs[i - 1][j] > lcs[i][j - 1])
-				{
-					lcs[i][j] = lcs[i - 1][j];
-				}
-				else
-				{
-					lcs[i][j] = lcs[i][j - 1];
-				}
+				lcs[i][j] = max(lcs[i - 1][j], lcs[i][j - 1]);
 			}
 		}
 	}
